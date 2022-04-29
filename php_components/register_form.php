@@ -1,59 +1,69 @@
 <section class="contact-page">
     <div class="container">
         <div class="text-center">
-        <h2 class="title">Crea tu cuenta</h2>
-             
+            <h2 class="title">Crea tu cuenta</h2>
+
         </div>
         <div class="row contact-wrap">
             <div class="status alert alert-success" style="display: none"></div>
-            <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
+            <form id="main-contact-form" class="contact-form" name="contact-form" method="GET" action="../controlador/register_controller.php">
                 <div class="col-sm-5 col-sm-offset-1">
-                <img src = img/regIcon.png>
-                <p>      Ingresa los siguientes datos</p>
+                    <img src=img/regIcon.png>
+                    <p>Ingresa los siguientes datos</p>
                     <div class="form-group">
-                                <label for="modrgstr_username">Nombre</label>
-                                <input id="modrgstr_username" type="text" name="nombreUser" class="inputbox" size="18" autocomplete="off">
-                        </div>
+                        <p><label for="modrgstr_username">Nombre</label>
+                            <input id="modrgstr_username" type="text" name="nombreUser" class="inputbox" size="18"
+                                   autocomplete="off"></p>
+                    </div>
                     <div class="form-group">
-                                 <label for="modrgstr_userage">Edad</label>
-                                 <input id="modrgstr_userare" type="text" name="ageUser" class="inputbox" size="18" autocomplete="off">
-                         </div>
+                        <p><label for="modrgstr_userage">Edad</label>
+                            <input id="modrgstr_userare" type="text" name="ageUser" class="inputbox" size="18"
+                                   autocomplete="off">
+                        </p></div>
                 </div>
                 <div class="col-sm-5">
                     <div class="form-group">
-                        <br>
+
                         <label>Dirección </label>
-                        <input id="modrgstr_useradress" type="text" name="adressUser" class="inputbox" size="18" autocomplete="off">
-                    </div>
-                    <div class="form-group">
+                        <p>
+                            <input id="modrgstr_useradress" type="text" name="adressUser" class="inputbox" size="18"
+                                   autocomplete="off">
+                        </p></div>
+                    <div class="form-group"><p>
                             <label for="modrgst_userphone">Número de celular</label>
-                            <input id="modrgstr_userphone" type="text" name="phoneUser" class="inputbox" size="18" autocomplete="off">
-                    </div>
+                            <input id="modrgstr_userphone" type="text" name="phoneUser" class="inputbox" size="18"
+                                   autocomplete="off">
+                        </p></div>
                     <div class="form-group">
                         <p>
-                                 <label>Género</label>
-                                <input name="Genero" type="radio" id="Genero" value="Masculino"> Masculino</input>
-                                <input name="Genero" type="radio" id="Genero" value="Femenino"> Femenino</input>
-                                <input name="Genero" type="radio" id="Genero" value="Otro"> Otro</input>
+                            <label>Género</label>
+                            <input name="genderUser" type="radio" id="Genero" value="M"> Masculino</input>
+                            <input name="genderUser" type="radio" id="Genero" value="F"> Femenino</input>
+                            <input name="genderUser" type="radio" id="Genero" value="O" checked> Otro</input>
                         </p>
-                  </div>
-                    <div class="form-group">
-                                <label for="modrgstr_useremail">Correo</label>
-                                <input id="modrgstr_useremail" type="text" name="email" class="inputbox" size="18" autocomplete="off">
-                   </div>
-
-                    <div class="form-group">
-                                     <label for="modrgstr_passwd">Contraseña</label>
-                                    <input id="modrgstr_passwd" type="password" name="password" class="inputbox" size="18" autocomplete="off">
                     </div>
+                    <div class="form-group"><p>
+                            <label for="modrgstr_useremail">Correo</label>
+                            <input id="modrgstr_useremail" type="email" name="emailUser" class="inputbox" size="18"
+                                   autocomplete="off">
+                        </p></div>
+
+                    <div class="form-group"><p>
+                            <label for="modrgstr_passwd">Contraseña</label>
+                            <input id="modrgstr_passwd" type="password" name="passwordOneUser" class="inputbox" size="18"
+                                   autocomplete="off">
+                        </p></div>
+
+                    <div class="form-group"><p>
+                            <label for="modrgstr_passwd">Repetir contraseña</label>
+                            <input id="modrgstr_passwd" type="password" name="passwordTwoUser" class="inputbox" size="18"
+                                   autocomplete="off">
+                        </p></div>
 
                     <div class="form-group">
-                                    <label for="modrgstr_passwd">Repetir contraseña</label>
-                                    <input id="modrgstr_passwd" type="password" name="password" class="inputbox" size="18" autocomplete="off">
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Registrarse</button>
+                        <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">
+                            Registrarse
+                        </button>
                     </div>
 
                 </div>

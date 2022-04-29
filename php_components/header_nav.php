@@ -1,7 +1,5 @@
-<?php
-session_start();
-?>
 <header id="header">
+    <?php session_start() ?>
     <nav class="navbar navbar-default navbar-static-top" role="banner">
         <div class="container">
             <div class="navbar-header">
@@ -18,7 +16,7 @@ session_start();
             <div class="navbar-collapse collapse">
                 <div class="menu">
                  <?php
-				     if (isset($_SESSION["user"]) && !empty($_SESSION["user"])){
+				     if (isset($_SESSION["userMail"]) && !empty($_SESSION["userMail"])){
 			     ?>
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation"><a href="index.php">Inicio</a></li>
@@ -27,7 +25,7 @@ session_start();
                         <li role="presentation"><a href="marketing.php">Marketing</a></li>
                         <li role="presentation"><a href="cuenta.php">Cuenta</a></li>
                         <li role="presentation"><a href="profile.php">Perfil</a></li>
-                        <li role="presentation"><a href="login.php">Iniciar Sesión</a></li>
+                        <li role="presentation"><a href="index.php" onclick="<?php session_destroy() ?>">Cerrar Sesión</a></li>
                     </ul>
 
                 <?php

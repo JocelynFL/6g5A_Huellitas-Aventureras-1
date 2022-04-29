@@ -22,24 +22,27 @@
                                 $pets = $_SESSION["userPets"];
                                 for ($i = 0; $i < sizeof($_SESSION["userPets"]); $i++) { ?>
                                     <tr>
-                                    <td style="padding-top: 1.5em"><p> <?php echo $_SESSION["userPets"][$i][1]; ?> </p></td>
-                                    <td style="text-align: right">
-                                        <button href="inicio.html" type="getnow" name="subscribe"
-                                                class="btn btn-primary btn-lg" required="required" onclick="petIndex.value=<?php echo $_SESSION["userPets"][$i][0]; ?>">Editar
-                                        </button>
-                                    </td>
+                                        <td style="padding-top: 1.5em"><p> <?php echo $_SESSION["userPets"][$i][1]; ?> </p></td>
+                                        <td style="text-align: right">
+                                            <button href="inicio.html" type="getnow" name="subscribe"
+                                                    class="btn btn-primary btn-lg" required="required" onclick="petIndex.value=<?php echo $_SESSION["userPets"][$i][0]; ?>">Editar
+                                            </button>
+                                        </td>
                                     </tr>
                                 <?php } ?>
                             </table>
                         </form>
+
                     </div>
                     <div style=" margin-bottom:10px; padding:2px; background-color:#65AAF0; line-height:1;">
                         <a href="add-pet.php">
-                            <button type="getnow" name="add-pet" class="btn" required="required">
-                                <p>Add</p></button>
-                        </a></div>
+                            <button type="getnow" name="add-pet" class="btn" required="required">Agregar</button>
+                        </a>
+                    </div>
                     <div class="clear"></div>
                 </div>
+
+
             </div>
 
             <div class="col-md-6">

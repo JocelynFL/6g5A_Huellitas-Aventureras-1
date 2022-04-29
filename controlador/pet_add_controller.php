@@ -18,10 +18,6 @@ if (isset($_GET["namePet"]) && !empty($_GET["namePet"]) &&
     isset($_GET["agePet"]) && !empty($_GET["agePet"]) &&
     isset($_GET["petRace"]) && !empty($_GET["petRace"])
 ) {
-    $userID = $_GET["userID"];
-    $petName = $_GET["namePet"];
-    $petAge = $_GET["agePet"];
-    $petRace = $_GET["petRace"];
     $pet->setNombre($petName);
     $pet->setEdad($petAge);
     $pet->setRaza($petRace);
@@ -48,11 +44,16 @@ if (isset($_GET["namePet"]) && !empty($_GET["namePet"]) &&
         error_log($e->getFile()." ".$e->getLine()." ".$e->getMessage(),0);
         $sErr = "Error al acceder a la base de datos";
     }
-} else
+} else {
     $error = "Faltan Datos";
+    header("Location: ../add-pet.php");
+    $msg = "Debe establecer un correo y una contraseña.";
+    $_SESSION["validPetRegister"]="false";
+    var_dump($_SESSION);
+}
 
 if ($error == "") {
-//    header("Location: ../profile.php");
+    header("Location: ../profile.php");
 }else {
     echo $error;
 }

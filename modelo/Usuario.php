@@ -2,13 +2,101 @@
 session_start();
 include_once("accesoBD.php");
 include_once("Persona.php");
+include_once("Paseo.php");
 include_once("Mascota.php");
+include_once("MetodoPago.php");
 
 class Usuario extends Persona
 {
     var $sIdUsuario = 0;
     var $sContraseña = "";
     var $arrMascotas = array();
+    var $arrMetodos = array();
+    var $arrPaseos = array();
+
+    public function getArrPaseos()
+    {
+        return $this->arrPaseos;
+    }
+
+    public function setArrPaseos($userID)
+    {
+        $db = new accesoBD();
+        $rides = array();
+        $query = "";
+        $arrRS = null;
+        $rideIndex = 0;
+        $ride = null;
+
+        if ($db->connect()) {
+            $query = "SELECT * FROM paseo
+                       WHERE paseo.ID_Usuario = '" . $userID . "'";
+
+            $arrRS = $db->execQuery($query);
+            $db->disconnect();
+
+            if ($arrRS != null) {
+                foreach ($arrRS as $rowPet) {
+                    $ride = new Paseo();
+
+                    $ride->setIdPaseo($rowPet[0]);
+                    $ride->setDuracion($rowPet[1]);
+                    $ride->setEstado($rowPet[2]);
+                    $ride->setHora($rowPet[3]);
+                    $ride->setIdUsuario($rowPet[4]);
+                    $ride->setIdMascota($rowPet[5]);
+
+                    $rides[$rideIndex] = array($ride->getIdUsuario(), $ride->getDuracion(), $ride->getEstado(), $ride->getHora(), $ride->getIdUsuario(), $ride->getIdMascota());
+
+                    $rideIndex++;
+                }
+            }
+        }
+
+        $this->arrPaseos = $rides;
+    }
+
+    public function getArrMetodos()
+    {
+        return $this->arrMetodos;
+    }
+
+    public function setArrMetodos($userID)
+    {
+        $db = new accesoBD();
+        $payments = array();
+        $query = "";
+        $arrRS = null;
+        $payIndex = 0;
+        $pay = null;
+
+        if ($db->connect()) {
+            $query = "SELECT * FROM metodo_pago
+                       WHERE metodo_pago.ID_Usuario = '" . $userID . "'";
+
+            $arrRS = $db->execQuery($query);
+            $db->disconnect();
+
+            if ($arrRS != null) {
+                foreach ($arrRS as $rowPet) {
+                    $pay = new MetodoPago();
+
+                    $pay->setIdMetodo($rowPet[0]);
+                    $pay->setTitular($rowPet[1]);
+                    $pay->setTipoProducto($rowPet[2]);
+                    $pay->setNumero($rowPet[3]);
+                    $pay->setCVV($rowPet[4]);
+                    $pay->setIdUsuario($rowPet[5]);
+
+                    $payments[$payIndex] = array($pay->getIdMetodo(), $pay->getTitular(), $pay->getTipoProducto(), $pay->getNumero(), $pay->getCVV(), $pay->getIdUsuario());
+
+                    $payIndex++;
+                }
+            }
+        }
+
+        $this->arrMetodos = $payments;
+    }
 
     public function getArrMascotas()
     {

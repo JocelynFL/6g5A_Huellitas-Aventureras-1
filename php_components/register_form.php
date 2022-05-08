@@ -36,6 +36,8 @@ if ($_SESSION["validRegister"] == "false") {
                             <input id="modrgstr_useradress" type="text" name="adressUser" class="inputbox" size="18"
                                    autocomplete="off">
                         </p></div>
+
+                        
                     <div class="form-group"><p>
                             <label for="modrgst_userphone">Número de celular</label>
                             <input id="modrgstr_userphone" type="text" name="phoneUser" class="inputbox" size="18"
